@@ -77,7 +77,8 @@ const Hero = () => {
               Discuss Product Strategy
             </a>
             <a
-              href="#"
+              href="/Resume_Rohit_Khanna_updated.pdf"
+              download
               className="px-8 py-3.5 border border-border text-muted-foreground font-medium rounded-lg hover:border-primary/30 hover:text-foreground transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
             >
               <FileText className="w-4 h-4" />
