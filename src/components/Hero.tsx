@@ -70,7 +70,9 @@ const Hero = () => {
               <ArrowDown className="w-4 h-4" />
             </button>
             <a
-              href="#contact"
+              href="https://topmate.io/rohit_khanna11/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-3.5 border border-primary/30 text-primary font-medium rounded-lg hover:bg-primary/10 transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
             >
               <MessageSquare className="w-4 h-4" />
