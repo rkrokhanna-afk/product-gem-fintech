@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, FileText, MessageSquare } from "lucide-react";
+import ContactFormDialog from "./ContactFormDialog";
 
 const Hero = () => {
+  const [contactOpen, setContactOpen] = useState(false);
+
   const scrollToPortfolio = () => {
     document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -69,15 +73,13 @@ const Hero = () => {
               View Product Portfolio
               <ArrowDown className="w-4 h-4" />
             </button>
-            <a
-              href="https://topmate.io/rohit_khanna11/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setContactOpen(true)}
               className="px-8 py-3.5 border border-primary/30 text-primary font-medium rounded-lg hover:bg-primary/10 transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
             >
               <MessageSquare className="w-4 h-4" />
               Discuss Product Strategy
-            </a>
+            </button>
             <a
               href="/Resume_Rohit_Khanna_updated.pdf"
               download
@@ -105,6 +107,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
+      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} />
     </section>
   );
 };

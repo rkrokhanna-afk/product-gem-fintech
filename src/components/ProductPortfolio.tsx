@@ -100,7 +100,7 @@ const products = [
   {
     icon: Leaf,
     label: "Grassroots FinTech",
-    title: "DoodhBhandaar – Agri-FinTech Platform",
+    title: "Doodhbhandaar – Agri-FinTech Platform",
     role: "Founder / Product Builder",
     objective: "Financial digitalization for dairy farming ecosystem.",
     capabilities: [
