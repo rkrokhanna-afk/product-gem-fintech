@@ -12,9 +12,44 @@ serve(async (req) => {
 
   try {
     const { name, phone, details } = await req.json();
+
+    const RECIPIENT_EMAIL = "rkrokhanna@gmail.com";
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
+    const SUPABASE_URL = Deno.env.get("SUPABASE_URL");
+
+    // Send email notification using Lovable AI to compose and Supabase's built-in email
+    // We'll use a simple fetch to send via a transactional approach
+    // For now, use Resend-compatible approach or log + notify
+
+    // Attempt to send email via Resend if API key is available
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     
-    // Log the contact submission for now
-    console.log("New contact submission:", { name, phone, details });
+    if (RESEND_API_KEY) {
+      const emailRes = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${RESEND_API_KEY}`,
+        },
+        body: JSON.stringify({
+          from: "Contact Form <onboarding@resend.dev>",
+          to: [RECIPIENT_EMAIL],
+          subject: `New Contact: ${name}`,
+          html: `
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Details:</strong> ${details || "No details provided"}</p>
+            <p><em>Submitted at ${new Date().toISOString()}</em></p>
+          `,
+        }),
+      });
+
+      const emailData = await emailRes.json();
+      console.log("Email sent:", emailData);
+    } else {
+      console.log("RESEND_API_KEY not configured. Contact submission logged:", { name, phone, details });
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
