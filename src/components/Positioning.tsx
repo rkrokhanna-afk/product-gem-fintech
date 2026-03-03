@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Building2, CreditCard, Landmark, BarChart3, Bot } from "lucide-react";
+import ContactFormDialog from "./ContactFormDialog";
 
 const pillars = [
   { icon: Building2, label: "Banking" },
@@ -10,6 +12,8 @@ const pillars = [
 ];
 
 const Positioning = () => {
+  const [contactOpen, setContactOpen] = useState(false);
+
   return (
     <section className="py-24 bg-navy-gradient" id="contact">
       <div className="container px-6">
@@ -45,14 +49,15 @@ const Positioning = () => {
             ))}
           </div>
 
-          <a
-            href="mailto:rohit@example.com"
+          <button
+            onClick={() => setContactOpen(true)}
             className="inline-flex items-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-gold-light transition-colors duration-300 text-sm tracking-wide"
           >
             Let's Discuss Product Strategy
-          </a>
+          </button>
         </motion.div>
       </div>
+      <ContactFormDialog open={contactOpen} onOpenChange={setContactOpen} />
     </section>
   );
 };
