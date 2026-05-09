@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FileText, MessageSquare, Github } from "lucide-react";
+import { ArrowDown, Download, MessageSquare, Github } from "lucide-react";
 
 const Hero = () => {
 
