@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FileText, MessageSquare } from "lucide-react";
+import { ArrowDown, FileText, MessageSquare, Github } from "lucide-react";
 
 const Hero = () => {
 
@@ -86,6 +86,15 @@ const Hero = () => {
             >
               <FileText className="w-4 h-4" />
               Download Resume
+            </a>
+            <a
+              href="https://github.com/rkrokhanna-afk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3.5 border border-border text-muted-foreground font-medium rounded-lg hover:border-primary/30 hover:text-foreground transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
+            >
+              <Github className="w-4 h-4" />
+              GitHub
             </a>
           </motion.div>
         </motion.div>
