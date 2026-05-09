@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FileText, MessageSquare, Github } from "lucide-react";
+import { ArrowDown, Download, MessageSquare, Github } from "lucide-react";
 
 const Hero = () => {
 
@@ -61,20 +61,20 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 max-w-5xl mx-auto"
           >
             <button
               onClick={scrollToPortfolio}
-              className="px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-gold-light transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
+              className="h-12 w-full px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              View Product Portfolio
               <ArrowDown className="w-4 h-4" />
+              View Product Portfolio
             </button>
             <a
               href="https://topmate.io/rohit_khanna11/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 border border-primary/30 text-primary font-medium rounded-lg hover:bg-primary/10 transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
+              className="h-12 w-full px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <MessageSquare className="w-4 h-4" />
               Discuss Product Strategy
@@ -82,16 +82,16 @@ const Hero = () => {
             <a
               href="/Resume_Rohit_Khanna_updated.pdf"
               download
-              className="px-8 py-3.5 border border-border text-muted-foreground font-medium rounded-lg hover:border-primary/30 hover:text-foreground transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
+              className="h-12 w-full px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground shadow-sm hover:border-primary/40 hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
-              <FileText className="w-4 h-4" />
+              <Download className="w-4 h-4" />
               Download Resume
             </a>
             <a
               href="https://github.com/rkrokhanna-afk"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 border border-border text-muted-foreground font-medium rounded-lg hover:border-primary/30 hover:text-foreground transition-colors duration-300 flex items-center gap-2 text-sm tracking-wide"
+              className="h-12 w-full px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground shadow-sm hover:border-primary/40 hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               <Github className="w-4 h-4" />
               GitHub
