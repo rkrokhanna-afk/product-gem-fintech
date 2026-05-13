@@ -65,36 +65,36 @@ const Hero = () => {
           >
             <button
               onClick={scrollToPortfolio}
-              className="flex-1 basis-0 min-w-0 h-12 px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="flex-1 basis-0 h-12 px-4 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background whitespace-nowrap"
             >
               <ArrowDown className="w-4 h-4 flex-shrink-0" />
-              <span className="truncate">View Product Portfolio</span>
+              <span>View Product Portfolio</span>
             </button>
             <a
               href="https://topmate.io/rohit_khanna11/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 basis-0 min-w-0 h-12 px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="flex-1 basis-0 h-12 px-4 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background whitespace-nowrap"
             >
               <MessageSquare className="w-4 h-4 flex-shrink-0" />
-              <span className="truncate">Discuss Product Strategy</span>
+              <span>Discuss Product Strategy</span>
             </a>
             <a
               href="/Resume_Rohit_Khanna_updated.pdf"
               download
-              className="flex-1 basis-0 min-w-0 h-12 px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground shadow-sm hover:border-primary/40 hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="flex-1 basis-0 h-12 px-4 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground shadow-sm hover:border-primary/40 hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background whitespace-nowrap"
             >
               <Download className="w-4 h-4 flex-shrink-0" />
-              <span className="truncate">Download Resume</span>
+              <span>Download Resume</span>
             </a>
             <a
               href="https://github.com/rkrokhanna-afk"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex-1 basis-0 min-w-0 h-12 px-5 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground shadow-sm hover:border-primary/40 hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              className="flex-1 basis-0 h-12 px-4 rounded-lg text-sm font-semibold tracking-wide inline-flex items-center justify-center gap-2 bg-card border border-border text-foreground shadow-sm hover:border-primary/40 hover:text-primary hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background whitespace-nowrap"
             >
               <Github className="w-4 h-4 flex-shrink-0" />
-              <span className="truncate">GitHub</span>
+              <span>GitHub</span>
             </a>
           </motion.div>
         </motion.div>
