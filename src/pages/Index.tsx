@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import DomainExpertise from "@/components/DomainExpertise";
-import ProductPortfolio from "@/components/ProductPortfolio";
+import ProjectsShowcase from "@/components/ProjectsShowcase";
 import OperatingModel from "@/components/OperatingModel";
 import TechStack from "@/components/TechStack";
 import Positioning from "@/components/Positioning";
@@ -14,7 +14,7 @@ const Index = () => {
       <div className="section-divider" />
       <DomainExpertise />
       <div className="section-divider" />
-      <ProductPortfolio />
+      <ProjectsShowcase />
       <div className="section-divider" />
       <OperatingModel />
       <div className="section-divider" />
