@@ -24,6 +24,9 @@ export interface Project {
   org: string;
   domains: Domain[];
   badges: string[];
+  /** Plain-language description for non-expert visitors. */
+  plain: string;
+  featured?: boolean;
   summary: string;
   stack: string[];
   problem: string;
@@ -35,6 +38,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "allianz-kyc",
+    plain:
+      "Signing up new customers used to take days of manual paperwork checks. I helped build a system that reads the documents, spots likely fraud and approves straightforward cases on the spot.",
     title: "Digital KYC & Fraud Decisioning",
     client: "Allianz",
     org: "Genpact",
@@ -53,6 +58,9 @@ export const projects: Project[] = [
   },
   {
     id: "ca-banks-kyc-agent",
+    featured: true,
+    plain:
+      "Bank staff had to gather proof of identity from dozens of separate documents and tools. I led a set of AI assistants that collect and cross-check that evidence, then hand a clear recommendation to a human.",
     title: "Autonomous Banking KYC Agent",
     client: "Canadian Banks",
     org: "Genpact",
@@ -71,6 +79,9 @@ export const projects: Project[] = [
   },
   {
     id: "unilever-supply-risk",
+    featured: true,
+    plain:
+      "When a supplier or shipping route runs into trouble, this platform spots it early and suggests what to do about it, instead of the news reaching planners too late.",
     title: "Autonomous Supply Chain Risk & Mitigation Platform",
     client: "Unilever",
     org: "Genpact",
@@ -89,6 +100,8 @@ export const projects: Project[] = [
   },
   {
     id: "coke-pr-po",
+    plain:
+      "Purchase requests were typed in and matched by hand. I helped automate the reading, checking and matching so orders and invoices line up on their own.",
     title: "Intelligent PR-to-PO Automation",
     client: "Coca-Cola South Africa",
     org: "Genpact",
@@ -105,6 +118,8 @@ export const projects: Project[] = [
   },
   {
     id: "insurance-rag-policy",
+    plain:
+      "Insurance rules are long and complicated. This tool reads them for the adviser and suggests the policies that actually fit the customer in front of them.",
     title: "RAG-Based Policy Recommendation Engine",
     client: "Global Insurance Client",
     org: "Genpact",
@@ -120,6 +135,8 @@ export const projects: Project[] = [
   },
   {
     id: "digital-pathology",
+    plain:
+      "Lab slides were reviewed under a microscope one at a time. This platform puts them on screen and highlights what a specialist should look at first.",
     title: "Clinical Digital Pathology Platform",
     client: "Life Sciences Client",
     org: "Genpact",
@@ -135,6 +152,9 @@ export const projects: Project[] = [
   },
   {
     id: "financial-crime-intel",
+    featured: true,
+    plain:
+      "Investigators chasing suspected money laundering had to pull evidence from many systems. This platform gathers it in one place and writes up a first draft of the case.",
     title: "Enterprise Financial Crime Intelligence Platform",
     client: "Global Banking Clients",
     org: "Genpact",
@@ -150,6 +170,9 @@ export const projects: Project[] = [
   },
   {
     id: "hsbc-aladdin",
+    featured: true,
+    plain:
+      "Wealth advisers could see what a client owned, but not how risky it was. I connected the two, so advisers get warned before a portfolio drifts off plan.",
     title: "Aladdin Wealth CRM Integration",
     client: "HSBC",
     org: "Coforge",
@@ -165,6 +188,8 @@ export const projects: Project[] = [
   },
   {
     id: "hsbc-treasury",
+    plain:
+      "What a client sees in their account and what the bank's own books say now match automatically, instead of being reconciled by hand.",
     title: "Wealth & Treasury Platform",
     client: "HSBC",
     org: "Coforge",
@@ -180,6 +205,8 @@ export const projects: Project[] = [
   },
   {
     id: "po-aml-recon",
+    plain:
+      "Millions of branch and online transactions had to be matched against the accounts each day. This engine does the matching and flags only the odd ones for people to look at.",
     title: "AML Transaction Reconciliation Engine",
     client: "UK Post Office",
     org: "Coforge",
@@ -195,6 +222,9 @@ export const projects: Project[] = [
   },
   {
     id: "po-dual-llm",
+    featured: true,
+    plain:
+      "Customers and 11,500 branch operators kept phoning for answers buried in policy documents. I led an assistant that answers in plain words, with a source behind every reply.",
     title: "Dual LLM Conversational AI Platform",
     client: "UK Post Office",
     org: "Coforge",
@@ -210,6 +240,8 @@ export const projects: Project[] = [
   },
   {
     id: "apex-treasury",
+    plain:
+      "Finance teams never quite knew how much cash they had, in which currency, right now. This platform shows it live.",
     title: "Corporate Treasury & Multi-Currency Liquidity Platform",
     client: "APEX",
     org: "Coforge",
@@ -225,6 +257,8 @@ export const projects: Project[] = [
   },
   {
     id: "apex-trade-finance",
+    plain:
+      "Trade paperwork that used to move by courier and email now moves digitally, with the compliance checks built in.",
     title: "Global Trade Finance & Digital Ledger",
     client: "APEX",
     org: "Coforge",
@@ -240,6 +274,8 @@ export const projects: Project[] = [
   },
   {
     id: "apex-derivatives",
+    plain:
+      "Risk numbers that took overnight to produce are now available during the trading day, so decisions are made on today's picture.",
     title: "Capital Markets & Derivatives Risk Analytics Pipeline",
     client: "APEX",
     org: "Coforge",
@@ -255,6 +291,8 @@ export const projects: Project[] = [
   },
   {
     id: "jnj-digital",
+    plain:
+      "Patient-facing processes were paper-heavy and disconnected. I helped redesign them into digital journeys that staff and patients can actually follow.",
     title: "Healthcare Digital Transformation",
     client: "Johnson & Johnson",
     org: "Coforge",
@@ -270,6 +308,8 @@ export const projects: Project[] = [
   },
   {
     id: "jnj-clinical",
+    plain:
+      "Clinical trial information sat in separate systems. I brought it together so teams could track a study in one place and prove compliance easily.",
     title: "Clinical Workflow & Data Platform",
     client: "Johnson & Johnson",
     org: "Coforge",
@@ -285,6 +325,8 @@ export const projects: Project[] = [
   },
   {
     id: "analec-research-crm",
+    plain:
+      "Research analysts wrote and shared their investment reports across scattered tools. I built the single workspace where they research, write and publish.",
     title: "Sell-Side Equity Research CRM",
     client: "Global Investment Banks",
     org: "Analec Infotech",
@@ -300,6 +342,8 @@ export const projects: Project[] = [
   },
   {
     id: "analec-market-data",
+    plain:
+      "Live market prices now flow straight into analysts' models, so their numbers are current instead of hours old.",
     title: "High-Throughput Market Data Ingestion Engine",
     client: "Institutional Clients",
     org: "Analec Infotech",
@@ -315,6 +359,8 @@ export const projects: Project[] = [
   },
   {
     id: "analec-valuation",
+    plain:
+      "A single workbench for valuing a company, with the review and approval steps built in so nothing goes out unchecked.",
     title: "Institutional Real-Time Valuation Workbench",
     client: "Investment Banking Clients",
     org: "Analec Infotech",
@@ -330,6 +376,8 @@ export const projects: Project[] = [
   },
   {
     id: "analec-portfolio",
+    plain:
+      "Fund managers can see exactly which decisions helped or hurt performance, rather than only the final number.",
     title: "Portfolio Analytics, Attribution & Intelligence Engine",
     client: "Asset Managers",
     org: "Analec Infotech",
@@ -345,6 +393,8 @@ export const projects: Project[] = [
   },
   {
     id: "bharatpe-crm",
+    plain:
+      "Small shopkeepers with no credit history could not borrow. Their everyday takings became the evidence for a working credit limit and automatic repayments.",
     title: "Retail Merchant CRM & Credit Rails",
     client: "BharatPe",
     org: "Kellton Tech",
@@ -360,6 +410,8 @@ export const projects: Project[] = [
   },
   {
     id: "brokerage-crm",
+    plain:
+      "Trading activity and the back-office books were tracked separately. I joined them so a broker sees one accurate picture per client.",
     title: "Multi-Asset Brokerage CRM & Trading Engine",
     client: "Global Brokerage",
     org: "Kellton Tech",
@@ -375,6 +427,9 @@ export const projects: Project[] = [
   },
   {
     id: "sbi-card-disputes",
+    featured: true,
+    plain:
+      "Disputing a card charge meant phoning and waiting. Cardholders can now raise and track a dispute themselves, following the card networks' rules.",
     title: "Automated Dispute & Chargeback Portal",
     client: "SBI Card",
     org: "Kellton Tech",
@@ -390,6 +445,9 @@ export const projects: Project[] = [
   },
   {
     id: "adani-pay",
+    featured: true,
+    plain:
+      "Built a payment service from scratch so merchants could take cards, wallets and QR payments with a simple checkout they drop into their site.",
     title: "Multi-Channel Payment Gateway & Checkout SDK",
     client: "Adani Pay",
     org: "Kellton Tech",
@@ -405,6 +463,8 @@ export const projects: Project[] = [
   },
   {
     id: "maxlife-onboarding",
+    plain:
+      "Buying a policy took weeks of forms and posting documents. The whole application, health checks and payment setup now happen online in one sitting.",
     title: "Policyholder Onboarding & Underwriting Portal",
     client: "Max Life Insurance",
     org: "Kellton Tech",
@@ -420,6 +480,8 @@ export const projects: Project[] = [
   },
   {
     id: "bnpl-lending",
+    plain:
+      "A buy-now-pay-later journey built from nothing: apply, get checked and get a decision in minutes rather than days.",
     title: "Digital Lending & BNPL Platform",
     client: "FinTech Client",
     org: "Kellton Tech",
@@ -435,6 +497,8 @@ export const projects: Project[] = [
   },
   {
     id: "fraud-aml-ml",
+    plain:
+      "Suspicious payments are scored as they happen, so genuine customers are not held up and real fraud is stopped in the moment.",
     title: "AI-Driven Transaction Fraud & AML Detection",
     client: "FinTech Client",
     org: "Kellton Tech",
@@ -449,6 +513,8 @@ export const projects: Project[] = [
   },
   {
     id: "pharmacy-fulfillment",
+    plain:
+      "Ordering medicine online was confusing and deliveries were opaque. I reworked the search, basket and tracking so people know what they ordered and when it arrives.",
     title: "Digital Healthcare & Pharmacy Fulfillment Platform",
     client: "Healthcare Client",
     org: "Kellton Tech",
@@ -464,6 +530,8 @@ export const projects: Project[] = [
   },
   {
     id: "patient-provider-crm",
+    plain:
+      "Booking, records and consultations lived in different places. One portal now carries a patient from appointment to follow-up.",
     title: "Patient & Provider Digital Workflow CRM",
     client: "Healthcare Client",
     org: "Kellton Tech",
@@ -479,6 +547,9 @@ export const projects: Project[] = [
   },
   {
     id: "farmer-crm",
+    featured: true,
+    plain:
+      "Dairy farmers had no financial record, so no bank would lend to them. Recording each milk delivery gave them a provable income history.",
     title: "Agri-FinTech Farmer CRM (0→1 Digital Credit Platform)",
     client: "Doodhbhandaar",
     org: "Doodhbhandaar",
@@ -494,6 +565,8 @@ export const projects: Project[] = [
   },
   {
     id: "micro-lending-engine",
+    plain:
+      "Predicts a farmer's income across the seasons, so small loans can be sized to what they can genuinely repay.",
     title: "Predictive Cash Flow & Micro-Lending Engine",
     client: "Doodhbhandaar",
     org: "Doodhbhandaar",
@@ -509,6 +582,8 @@ export const projects: Project[] = [
   },
   {
     id: "agri-marketplace",
+    plain:
+      "Farmers sold at whatever price a middleman offered. A direct marketplace with live pricing let them see and get the real market rate.",
     title: "B2B Agritech Marketplace & Dynamic Pricing Engine",
     client: "Doodhbhandaar",
     org: "Doodhbhandaar",
@@ -524,6 +599,8 @@ export const projects: Project[] = [
   },
   {
     id: "coop-erp",
+    plain:
+      "Cooperatives ran on paper registers. This gave them collections, payments and plain-English reporting in one system.",
     title: "Interactive Financial Analytics & Cooperative ERP",
     client: "Doodhbhandaar",
     org: "Doodhbhandaar",
@@ -539,6 +616,8 @@ export const projects: Project[] = [
   },
   {
     id: "seafarer-wealth",
+    plain:
+      "Seafarers work abroad for months with little financial guidance. This tool shows their savings and assets in one view and helps them plan.",
     title: "Seafarer Wealth CRM & Asset Evaluation Tool",
     client: "AskJolt",
     org: "Jolt Online",
@@ -554,6 +633,8 @@ export const projects: Project[] = [
   },
   {
     id: "maritime-academy",
+    plain:
+      "Course booking and training records for a maritime academy, moved from spreadsheets into one place staff and students can trust.",
     title: "Maritime Training Academy CRM & Course Marketplace",
     client: "Maritime Institutes",
     org: "Jolt Online",
@@ -569,6 +650,8 @@ export const projects: Project[] = [
   },
   {
     id: "maritime-travel",
+    plain:
+      "Getting a crew member from home to ship involves flights, visas and payments in several currencies. I made it one coordinated booking.",
     title: "Maritime Travel, Booking & Cross-Border Payment Engine",
     client: "AskJolt",
     org: "Jolt Online",
@@ -584,6 +667,8 @@ export const projects: Project[] = [
   },
   {
     id: "crew-logistics",
+    plain:
+      "Tracks who is trained, certified and due to travel across a whole fleet, so no one boards a ship without the right qualifications.",
     title: "Corporate Crew Logistics & Training Governance Platform",
     client: "Shipping Corporates",
     org: "Jolt Online",
@@ -599,6 +684,8 @@ export const projects: Project[] = [
   },
   {
     id: "container-fleet",
+    plain:
+      "Coordinated the day-to-day running of a global container fleet, tightening how maintenance, crewing and cost data flowed between ship and office.",
     title: "Global Container Fleet Logistics Program",
     client: "Anglo Eastern",
     org: "Anglo Eastern Ship Management",
@@ -614,6 +701,8 @@ export const projects: Project[] = [
   },
   {
     id: "bulk-carrier",
+    plain:
+      "Ran the safety, inspection and cargo-quality routines for dry-cargo ships, keeping vessels compliant and available.",
     title: "Bulk Carrier Dry Cargo Governance Program",
     client: "Anglo Eastern",
     org: "Anglo Eastern Ship Management",
@@ -628,6 +717,8 @@ export const projects: Project[] = [
   },
   {
     id: "spares-procurement",
+    plain:
+      "Ships waited on parts while spares sat unused elsewhere. I reorganised buying and stock so the right part reaches the right vessel.",
     title: "Global Fleet Technical Spares Procurement",
     client: "Anglo Eastern",
     org: "Anglo Eastern Ship Management",
@@ -643,6 +734,8 @@ export const projects: Project[] = [
   },
   {
     id: "pms-inventory",
+    plain:
+      "Maintenance stopped being reactive: equipment is serviced on schedule and the parts needed are already on board.",
     title: "Fleet Asset Planned Maintenance & Inventory System",
     client: "Anglo Eastern",
     org: "Anglo Eastern Ship Management",
@@ -658,6 +751,8 @@ export const projects: Project[] = [
   },
   {
     id: "marpol-governance",
+    plain:
+      "Made sure ships meet international environmental and safety rules, with the evidence ready for inspection at any port.",
     title: "Maritime Environmental (MARPOL/SOLAS) Governance",
     client: "Anglo Eastern",
     org: "Anglo Eastern Ship Management",
@@ -673,6 +768,8 @@ export const projects: Project[] = [
   },
   {
     id: "drydock-capital",
+    plain:
+      "Managed major ship overhauls end to end, keeping large repair budgets and tight yard schedules under control.",
     title: "Dry-Docking Capital Overhaul Program",
     client: "Anglo Eastern",
     org: "Anglo Eastern Ship Management",
@@ -688,6 +785,8 @@ export const projects: Project[] = [
   },
   {
     id: "practo",
+    plain:
+      "Finding the right doctor and getting an appointment was slow and unclear. I improved search, profiles and booking so people get seen sooner.",
     title: "Healthcare Marketplace Discovery & Appointments",
     client: "Practo",
     org: "Additional Experience",
@@ -702,6 +801,8 @@ export const projects: Project[] = [
   },
   {
     id: "apollo-pharmacy",
+    plain:
+      "Made online pharmacy ordering simpler and deliveries faster, from search through to the parcel arriving.",
     title: "Digital Pharmacy Commerce & Dispatch",
     client: "Apollo Pharmacy",
     org: "Additional Experience",
