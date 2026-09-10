@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import DomainExpertise from "@/components/DomainExpertise";
+import FeaturedWork from "@/components/FeaturedWork";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
 import OperatingModel from "@/components/OperatingModel";
 import TechStack from "@/components/TechStack";
@@ -10,16 +11,20 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <Hero />
-      <div className="section-divider" />
-      <DomainExpertise />
-      <div className="section-divider" />
-      <ProjectsShowcase />
-      <div className="section-divider" />
-      <OperatingModel />
-      <div className="section-divider" />
-      <TechStack />
-      <Positioning />
+      <main>
+        <Hero />
+        <div className="section-divider" />
+        <DomainExpertise />
+        <div className="section-divider" />
+        <FeaturedWork />
+        <div className="section-divider" />
+        <ProjectsShowcase />
+        <div className="section-divider" />
+        <OperatingModel />
+        <div className="section-divider" />
+        <TechStack />
+        <Positioning />
+      </main>
       <footer className="border-t border-border py-8 text-center">
         <p className="text-xs text-muted-foreground">© 2025 Rohit Khanna. All rights reserved.</p>
       </footer>

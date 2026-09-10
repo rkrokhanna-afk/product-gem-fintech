@@ -4,7 +4,7 @@ import { ArrowDown, Download, MessageSquare, Github } from "lucide-react";
 const Hero = () => {
 
   const scrollToPortfolio = () => {
-    document.getElementById("portfolio")?.scrollIntoView({ behavior: "smooth" });
+    document.getElementById("featured")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -30,7 +30,7 @@ const Hero = () => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/30 bg-primary/5 mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse-gold" />
-            <span className="text-sm font-medium text-primary tracking-wide uppercase">Enterprise Product Leader</span>
+            <span className="text-sm font-medium text-primary tracking-wide uppercase">Product Leader · 16+ Years</span>
           </motion.div>
 
           {/* Name */}
@@ -41,12 +41,14 @@ const Hero = () => {
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 font-light">
-            Designing, Modernizing & Scaling Regulated Financial Products
+            I build the software behind money — paying, borrowing, saving and
+            proving it was all done properly. 45 projects, explained in plain
+            English.
           </p>
 
           {/* Domain tags */}
           <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {["Core Banking", "Lending", "Payments", "Trade Lifecycle", "AML", "GenAI"].map((tag) => (
+            {["Banking", "Payments", "Lending", "Investing", "Fraud & AML", "AI"].map((tag) => (
               <span
                 key={tag}
                 className="px-3 py-1 text-xs font-medium tracking-wider uppercase text-primary/80 border border-primary/20 rounded bg-primary/5"

@@ -4,11 +4,11 @@ import { Building2, CreditCard, Landmark, BarChart3, Bot } from "lucide-react";
 import ContactFormDialog from "./ContactFormDialog";
 
 const pillars = [
-  { icon: Building2, label: "Banking" },
-  { icon: CreditCard, label: "Payments" },
-  { icon: Landmark, label: "Lending" },
-  { icon: BarChart3, label: "Capital Markets" },
-  { icon: Bot, label: "AI Compliance" },
+  { icon: Building2, label: "Everyday banking" },
+  { icon: CreditCard, label: "Paying & getting paid" },
+  { icon: Landmark, label: "Lending & credit" },
+  { icon: BarChart3, label: "Investing & markets" },
+  { icon: Bot, label: "AI that helps decide" },
 ];
 
 const Positioning = () => {
@@ -26,10 +26,13 @@ const Positioning = () => {
           <div className="section-divider mb-16" />
 
           <blockquote className="font-serif text-xl md:text-2xl lg:text-3xl text-foreground leading-relaxed mb-8 italic">
-            "I specialize in building and modernizing regulated financial products across Banking, Capital Markets, Lending, and Payments."
+            "Money products come with a lot of rules. My job is to turn those
+            rules into something that actually works for the person using it."
           </blockquote>
           <p className="text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12">
-            My expertise lies in translating regulatory complexity into scalable, AI-enabled product architectures that drive operational efficiency, risk transparency, and business growth.
+            I work with banks, lenders and payment companies to make slow,
+            paper-heavy processes fast and dependable — without cutting the
+            corners that keep customers and regulators protected.
           </p>
 
           {/* Domain Pillars */}
@@ -53,7 +56,7 @@ const Positioning = () => {
             onClick={() => setContactOpen(true)}
             className="inline-flex items-center px-8 py-3.5 bg-primary text-primary-foreground font-semibold rounded-lg hover:bg-gold-light transition-colors duration-300 text-sm tracking-wide"
           >
-            Let's Discuss Product Strategy
+            Get in touch
           </button>
         </motion.div>
       </div>
