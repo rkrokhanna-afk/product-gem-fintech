@@ -2,13 +2,17 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Search, ArrowUpRight } from "lucide-react";
 import { projects, domains, type Project, type Domain } from "@/data/projects";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "@/components/ui/dialog";
+import ProjectDetailDialog from "./ProjectDetailDialog";
+
+const plainDomainLabels: Record<Domain, string> = {
+  "AI & Agentic Systems": "AI assistants",
+  "Banking, FinTech & Payments": "Banking & payments",
+  "Wealth & Capital Markets": "Investing & savings",
+  "Supply Chain & Procurement": "Supply chain & buying",
+  "Healthcare & Life Sciences": "Health & medicine",
+  "AgriTech & Financial Inclusion": "Farming & access to credit",
+  "Maritime & Enterprise Logistics": "Shipping & logistics",
+};
 
 const ProjectsShowcase = () => {
   const [activeDomain, setActiveDomain] = useState<Domain | "All">("All");
@@ -24,6 +28,7 @@ const ProjectsShowcase = () => {
       if (!q) return true;
       return (
         p.title.toLowerCase().includes(q) ||
+        p.plain.toLowerCase().includes(q) ||
         p.summary.toLowerCase().includes(q) ||
         p.stack.some((s) => s.toLowerCase().includes(q)) ||
         p.badges.some((b) => b.toLowerCase().includes(q))
@@ -43,14 +48,15 @@ const ProjectsShowcase = () => {
           className="max-w-3xl mx-auto text-center mb-14"
         >
           <span className="text-[11px] font-medium tracking-[0.28em] uppercase text-muted-foreground mb-5 block">
-            Product Portfolio
+            Everything else
           </span>
           <h2 className="font-serif text-4xl md:text-6xl font-semibold tracking-tight text-foreground leading-[1.05]">
-            {projects.length} products, platforms
-            <br className="hidden sm:block" /> and systems delivered.
+            All {projects.length} projects,
+            <br className="hidden sm:block" /> in one place.
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground font-light leading-relaxed">
-            Explore by domain, or search for a capability, protocol or technology.
+            Browse by area of work, or search for anything — an industry, a
+            company, or a technology. Tap a project to read the full story.
           </p>
         </motion.div>
 
@@ -62,27 +68,29 @@ const ProjectsShowcase = () => {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search capabilities, protocols, technologies…"
+              placeholder="Try 'payments', 'AI' or a company name…"
               aria-label="Search projects"
-              className="w-full h-14 pl-12 pr-5 rounded-full bg-secondary/60 border border-transparent text-[15px] text-foreground placeholder:text-muted-foreground/80 focus:outline-none focus:bg-card focus:border-border focus:ring-2 focus:ring-ring/30 transition-all duration-300"
+              className="w-full h-14 pl-12 pr-5 rounded-full bg-secondary/60 border border-transparent text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:bg-card focus:border-border focus:ring-2 focus:ring-ring/30 transition-all duration-300"
             />
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-1 gap-y-2">
             {filters.map((f) => {
               const active = activeDomain === f;
+              const label =
+                f === "All" ? "Everything" : plainDomainLabels[f as Domain];
               return (
                 <button
                   key={f}
                   onClick={() => setActiveDomain(f)}
                   aria-pressed={active}
-                  className={`text-[13px] px-4 py-2 rounded-full transition-all duration-300 ${
+                  className={`text-[13px] px-4 py-2 rounded-full transition-all duration-300 min-h-11 ${
                     active
                       ? "text-foreground font-medium bg-secondary"
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  {f}
+                  {label}
                 </button>
               );
             })}
@@ -108,15 +116,15 @@ const ProjectsShowcase = () => {
                     {p.title}
                   </h3>
                   <p className="mt-2.5 text-[15px] text-muted-foreground font-light leading-relaxed max-w-2xl">
-                    {p.summary}
+                    {p.plain}
                   </p>
                   <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1.5">
-                    {p.badges.slice(0, 3).map((b) => (
+                    {p.domains.map((d) => (
                       <span
-                        key={b}
-                        className="text-[11px] tracking-[0.14em] uppercase text-muted-foreground/70"
+                        key={d}
+                        className="text-[11px] tracking-[0.14em] uppercase text-muted-foreground"
                       >
-                        {b}
+                        {plainDomainLabels[d]}
                       </span>
                     ))}
                   </div>
@@ -135,64 +143,15 @@ const ProjectsShowcase = () => {
           </p>
         )}
 
-        <p className="mt-10 text-center text-[13px] text-muted-foreground/80">
-          {filtered.length} of {projects.length} projects
+        <p className="mt-10 text-center text-[13px] text-muted-foreground">
+          Showing {filtered.length} of {projects.length} projects
         </p>
       </div>
 
-      <Dialog open={!!selected} onOpenChange={(o) => !o && setSelected(null)}>
-        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
-          {selected && (
-            <>
-              <DialogHeader>
-                <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-muted-foreground">
-                  {selected.domains[0]}
-                </span>
-                <DialogTitle className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-left">
-                  {selected.title}
-                </DialogTitle>
-                <DialogDescription className="text-left text-[15px] font-light leading-relaxed">
-                  {selected.summary}
-                </DialogDescription>
-              </DialogHeader>
-
-              <div className="space-y-7 pt-3">
-                {[
-                  ["Problem", selected.problem],
-                  ["My Role", selected.role],
-                  ["Systems & Integrations", selected.integrations],
-                  ["Impact", selected.impact],
-                ].map(([label, body]) => (
-                  <div key={label}>
-                    <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-muted-foreground mb-2 block">
-                      {label}
-                    </span>
-                    <p className="text-[15px] text-foreground/90 font-light leading-relaxed">
-                      {body}
-                    </p>
-                  </div>
-                ))}
-
-                <div>
-                  <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-muted-foreground mb-3 block">
-                    Technology
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {selected.stack.map((s) => (
-                      <span
-                        key={s}
-                        className="text-[12px] px-3 py-1 rounded-full bg-secondary text-secondary-foreground"
-                      >
-                        {s}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </>
-          )}
-        </DialogContent>
-      </Dialog>
+      <ProjectDetailDialog
+        project={selected}
+        onClose={() => setSelected(null)}
+      />
     </section>
   );
 };
