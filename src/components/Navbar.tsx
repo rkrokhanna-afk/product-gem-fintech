@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Expertise", href: "#expertise" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Framework", href: "#framework" },
-  { label: "Tech", href: "#tech" },
+  { label: "What I do", href: "#expertise" },
+  { label: "Selected work", href: "#featured" },
+  { label: "All projects", href: "#portfolio" },
+  { label: "How I work", href: "#how-i-work" },
+  { label: "Tools", href: "#tools" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -27,7 +28,7 @@ const Navbar = () => {
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {links.map((l) => (
             <a key={l.label} href={l.href} className="text-xs font-medium tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors">
               {l.label}
@@ -36,7 +37,12 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <button onClick={() => setOpen(!open)} className="md:hidden text-foreground">
+        <button
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="md:hidden text-foreground min-h-11 min-w-11 inline-flex items-center justify-center"
+        >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
