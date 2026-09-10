@@ -26,7 +26,7 @@ const FeaturedWork = () => {
             <br className="hidden sm:block" /> explained simply.
           </h2>
           <p className="mt-6 text-base md:text-lg text-muted-foreground font-light leading-relaxed">
-            No jargon needed. Each one started as a everyday problem someone had
+            No jargon needed. Each one started as an everyday problem someone had
             to solve — here is what it was, and what changed.
           </p>
         </motion.div>
