@@ -1,0 +1,3 @@
+- [ ] Add certifications, contact details, location, and education
+- [ ] Audit and fix accessibility across rewritten sections
+- [ ] Verify Selected work and project dialogs on desktop and mobile
