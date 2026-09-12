@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Search, ArrowUpRight } from "lucide-react";
 import { projects, domains, type Project, type Domain } from "@/data/projects";
 import ProjectDetailDialog from "./ProjectDetailDialog";
+import { Button } from "@/components/ui/button";
 
 const plainDomainLabels: Record<Domain, string> = {
   "AI & Agentic Systems": "AI assistants",
@@ -63,7 +64,7 @@ const ProjectsShowcase = () => {
         {/* Controls */}
         <div className="max-w-3xl mx-auto mb-14 space-y-6">
           <div className="relative">
-            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+            <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" aria-hidden="true" />
             <input
               type="search"
               value={query}
@@ -80,7 +81,10 @@ const ProjectsShowcase = () => {
               const label =
                 f === "All" ? "Everything" : plainDomainLabels[f as Domain];
               return (
-                <button
+                <Button
+                  type="button"
+                  variant={active ? "secondary" : "ghost"}
+                  size="sm"
                   key={f}
                   onClick={() => setActiveDomain(f)}
                   aria-pressed={active}
@@ -91,7 +95,7 @@ const ProjectsShowcase = () => {
                   }`}
                 >
                   {label}
-                </button>
+                </Button>
               );
             })}
           </div>
@@ -130,7 +134,7 @@ const ProjectsShowcase = () => {
                   </div>
                 </div>
                 <span className="mt-1 flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full border border-border/70 text-muted-foreground transition-all duration-300 group-hover:border-primary group-hover:text-primary group-hover:translate-x-0.5">
-                  <ArrowUpRight className="w-4 h-4" />
+                  <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
                 </span>
               </div>
             </motion.button>
@@ -138,12 +142,12 @@ const ProjectsShowcase = () => {
         </div>
 
         {filtered.length === 0 && (
-          <p className="text-center text-sm text-muted-foreground py-16">
+          <p className="text-center text-sm text-muted-foreground py-16" role="status">
             Nothing matches that search yet.
           </p>
         )}
 
-        <p className="mt-10 text-center text-[13px] text-muted-foreground">
+        <p className="mt-10 text-center text-[13px] text-muted-foreground" aria-live="polite" aria-atomic="true">
           Showing {filtered.length} of {projects.length} projects
         </p>
       </div>

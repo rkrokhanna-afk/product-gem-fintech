@@ -49,11 +49,7 @@ const ContactFormDialog = ({ open, onOpenChange }: ContactFormDialogProps) => {
       onOpenChange(false);
     } catch (err) {
       console.error(err);
-      toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
-      setName("");
-      setPhone("");
-      setDetails("");
-      onOpenChange(false);
+      toast({ title: "Message not sent", description: "Please try again, or use the email link on this page.", variant: "destructive" });
     } finally {
       setLoading(false);
     }
