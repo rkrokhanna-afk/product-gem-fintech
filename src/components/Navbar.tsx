@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const links = [
   { label: "What I do", href: "#expertise" },
@@ -21,48 +22,53 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : ""}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || open ? "bg-background/95 backdrop-blur-md border-b border-border" : ""}`}>
+      <nav aria-label="Primary navigation">
       <div className="container px-6 flex items-center justify-between h-16">
         <a href="#" className="font-serif text-lg font-bold text-foreground">
           R<span className="text-primary">K</span>
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-6">
           {links.map((l) => (
-            <a key={l.label} href={l.href} className="text-xs font-medium tracking-wider uppercase text-muted-foreground hover:text-primary transition-colors">
+            <li key={l.label}><a href={l.href} className="inline-flex min-h-11 items-center text-xs font-semibold tracking-wider uppercase text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors">
               {l.label}
-            </a>
+            </a></li>
           ))}
-        </div>
+        </ul>
 
         {/* Mobile toggle */}
-        <button
+        <Button
+          type="button"
+          variant="ghost"
+          size="icon"
           onClick={() => setOpen(!open)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
+          aria-controls="mobile-navigation"
           className="md:hidden text-foreground min-h-11 min-w-11 inline-flex items-center justify-center"
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        </Button>
       </div>
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background border-b border-border px-6 py-4 space-y-3">
+        <ul id="mobile-navigation" className="md:hidden bg-background border-b border-border px-6 py-3">
           {links.map((l) => (
-            <a
-              key={l.label}
+            <li key={l.label}><a
               href={l.href}
               onClick={() => setOpen(false)}
-              className="block text-sm text-muted-foreground hover:text-primary transition-colors"
+              className="flex min-h-11 items-center text-sm font-medium text-muted-foreground hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
             >
               {l.label}
-            </a>
+            </a></li>
           ))}
-        </div>
+        </ul>
       )}
-    </nav>
+      </nav>
+    </header>
   );
 };
 

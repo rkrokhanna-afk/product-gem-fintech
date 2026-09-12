@@ -14,10 +14,10 @@ interface Props {
 
 const ProjectDetailDialog = ({ project, onClose }: Props) => (
   <Dialog open={!!project} onOpenChange={(o) => !o && onClose()}>
-    <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+    <DialogContent className="w-[calc(100%-2rem)] max-w-2xl max-h-[88dvh] overflow-y-auto rounded-lg p-5 pt-12 sm:p-7 sm:pt-10">
       {project && (
         <>
-          <DialogHeader>
+          <DialogHeader className="gap-2">
             <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-muted-foreground">
               {project.domains[0]}
             </span>
@@ -34,25 +34,25 @@ const ProjectDetailDialog = ({ project, onClose }: Props) => (
               ["What wasn't working", project.problem],
               ["What I did", project.role],
               ["What changed", project.impact],
-            ].map(([label, body]) => (
-              <div key={label}>
-                <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-muted-foreground mb-2 block">
+             ].map(([label, body]) => (
+               <section key={label}>
+                 <h3 className="text-[12px] font-semibold tracking-[0.16em] uppercase text-muted-foreground mb-2">
                   {label}
-                </span>
-                <p className="text-[15px] text-foreground/90 font-light leading-relaxed">
+                 </h3>
+                 <p className="text-[15px] text-foreground font-normal leading-relaxed">
                   {body}
                 </p>
-              </div>
+               </section>
             ))}
 
-            <div className="rounded-xl border border-border/70 bg-secondary/40 p-5">
-              <span className="text-[11px] font-medium tracking-[0.18em] uppercase text-muted-foreground mb-3 block">
+            <section className="rounded-lg border border-border/70 bg-secondary/40 p-4 sm:p-5">
+              <h3 className="text-[12px] font-semibold tracking-[0.16em] uppercase text-muted-foreground mb-3">
                 For the technical reader
-              </span>
-              <p className="text-[14px] text-muted-foreground font-light leading-relaxed">
+              </h3>
+              <p className="text-[14px] text-muted-foreground font-normal leading-relaxed">
                 {project.summary}
               </p>
-              <p className="mt-3 text-[14px] text-muted-foreground font-light leading-relaxed">
+              <p className="mt-3 text-[14px] text-muted-foreground font-normal leading-relaxed">
                 {project.integrations}
               </p>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -65,7 +65,7 @@ const ProjectDetailDialog = ({ project, onClose }: Props) => (
                   </span>
                 ))}
               </div>
-            </div>
+            </section>
           </div>
         </>
       )}
